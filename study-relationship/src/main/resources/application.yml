@@ -1,0 +1,19 @@
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: study-relationship
+    
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/study_relationship
+    username: root
+    password: Godblessyou_forever1@#
+    
+  jpa:
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
