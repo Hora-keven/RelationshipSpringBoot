@@ -18,7 +18,7 @@ public class ExceptionsHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(UserException.class)
 	public ResponseEntity<MessageResponse> error400UserAlreadyExists(UserException ex, WebRequest request){
-		MessageResponse message = new MessageResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), LocalDateTime.now());
+		MessageResponse message = new MessageResponse(HttpStatus.NOT_FOUND, ex.getMessage(), LocalDateTime.now());
 		return new ResponseEntity<>(message, new HttpHeaders(), message.getStatus());
 		
 	}
