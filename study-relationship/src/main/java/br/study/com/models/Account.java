@@ -2,6 +2,7 @@ package br.study.com.models;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,10 +27,20 @@ public class Account {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@OneToOne(mappedBy = "account")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "account")
 	@PrimaryKeyJoinColumn
 	private BillingAddress billingAddress;
 	
+	public Account(Long id, String description, User user, BillingAddress billingAddress,
+			List<AccountStock> accountStock) {
+		this.id = id;
+		this.description = description;
+		this.user = user;
+		this.billingAddress = billingAddress;
+		this.accountStock = accountStock;
+	}
+
+
 	@OneToMany(mappedBy = "account")
 	private List<AccountStock> accountStock;
 

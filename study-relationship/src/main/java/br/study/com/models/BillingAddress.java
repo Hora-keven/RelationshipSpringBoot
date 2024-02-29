@@ -1,5 +1,6 @@
 package br.study.com.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,12 +19,19 @@ public class BillingAddress {
 	@Column(name = "id")
 	private Long id;
 	
-	@OneToOne
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id")
 	@MapsId
 	private Account account;
 	
 	private String street;
+	public BillingAddress(Long id, Account account, String street, String number) {
+		this.id = id;
+		this.account = account;
+		this.street = street;
+		this.number = number;
+	}
 	public BillingAddress() {
 		super();
 	}
