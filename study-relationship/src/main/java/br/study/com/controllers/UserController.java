@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.study.com.dtos.AccountResponseDto;
+import br.study.com.dtos.CreateAccountDto;
 import br.study.com.dtos.UserDto;
 import br.study.com.dtos.UserResponseDto;
 import br.study.com.models.User;
@@ -46,5 +48,15 @@ public class UserController {
 	@GetMapping
 	public ResponseEntity<List<UserResponseDto>> findAll(){
 		return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
+	}
+
+	@PostMapping("/{id}/accounts")
+	public ResponseEntity<CreateAccountDto>createAccount(@PathVariable("id") Long id, @RequestBody CreateAccountDto data){
+		return ResponseEntity.status(HttpStatus.OK).body(service.createAccount(id, data));
+	}
+	
+	@GetMapping("/{id}/accounts")
+	public ResponseEntity<List<AccountResponseDto>> listAccounts(@PathVariable("id") Long id){
+		return ResponseEntity.status(HttpStatus.OK).body(service.listAccounts(id));
 	}
 }
