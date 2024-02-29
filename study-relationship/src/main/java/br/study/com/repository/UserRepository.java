@@ -1,4 +1,4 @@
-package br.study.com.repositories;
+package br.study.com.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
