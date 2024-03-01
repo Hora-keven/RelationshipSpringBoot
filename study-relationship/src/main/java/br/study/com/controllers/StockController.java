@@ -20,6 +20,6 @@ public class StockController {
 
     @PostMapping
     public ResponseEntity<StockDto> createStock(@RequestBody StockDto data){
-        return ResponseEntity.status(HttpStatus.OK).body(service.createStock(data));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.createStock(data));
     }
 }
