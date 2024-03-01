@@ -52,7 +52,7 @@ public class UserController {
 
 	@PostMapping("/{id}/accounts")
 	public ResponseEntity<CreateAccountDto>createAccount(@PathVariable("id") Long id, @RequestBody CreateAccountDto data){
-		return ResponseEntity.status(HttpStatus.OK).body(service.createAccount(id, data));
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.createAccount(id, data));
 	}
 	
 	@GetMapping("/{id}/accounts")
