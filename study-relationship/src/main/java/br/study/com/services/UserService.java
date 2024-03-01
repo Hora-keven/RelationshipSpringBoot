@@ -23,8 +23,10 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
 	@Autowired
 	private AccountRepository accountRepository;
+	
 	@Autowired
 	private BillingAddressRepository billingAddressRepository;
 	
